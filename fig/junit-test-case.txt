@@ -1,0 +1,36 @@
+/*01*/ package vending;
+/*02*/
+/*03*/ import junit.framework.*;
+/*04*/ import probe.DefaultProber;
+/*05*/
+/*06*/ /**
+/*07*/  * A sample test set for vending machine.
+/*08*/  */
+/*09*/ public class DispenserTestCase extends TestCase {
+/*10*/     protected Dispenser d;
+/*11*/
+/*12*/     protected void setUp() {
+/*13*/         d = new Dispenser();
+/*14*/     }
+/*15*/
+/*16*/     // Testing Dispenser.setValidSelection() method
+/*17*/     public void testDispenserException() {
+/*18*/         int val;
+/*19*/
+/*20*/         d.setValidSelection( null );
+/*21*/         val = d.dispense( 50, 10 );
+/*22*/         assertEquals( 0, val );
+/*23*/     }
+/*24*/
+/*25*/     protected void tearDown() {
+/*26*/         DefaultProber.dump();
+/*27*/     }
+/*28*/
+/*29*/     public static Test suite() {
+/*30*/         return new TestSuite(DispenserTestCase.class);
+/*31*/     }
+/*32*/
+/*33*/     public static void main(String[] args) {
+/*34*/         junit.textui.TestRunner.run(suite());
+/*35*/     }
+/*36*/ }

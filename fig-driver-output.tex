@@ -1,0 +1,48 @@
+\begin{figure}[!ht]
+\begin{center}\cmdsize
+\begin{tabular}{|c|c|}\hline
+&\\
+\begin{minipage}{2.7in}
+\begin{verbatim}
+auri@AURIMRV ~/example
+$ java -cp "." vending.TestDriver input1
+VendingMachine ON
+Current value = 25
+Enter 25 coins
+Current value = -25
+VendingMachine OFF
+
+
+
+
+
+
+
+\end{verbatim}
+\end{minipage}
+&
+\begin{minipage}{3.6in}
+\begin{verbatim}
+auri@AURIMRV ~/example
+$ java -cp ".;..\Tools\jabuti;\
+>..\Tools\jabuti\lib\BCEL.jar;\
+>..\Tools\jabuti\lib\crimson.jar;\
+> probe.ProberLoader -P vending.jbt \
+> vending.TestDriver input1
+Project Name: vending.jbt
+Trace File Name: vending.trc
+Processing File vending.jbt
+VendingMachine ON
+Current value = 25
+Enter 25 coins
+Current value = -25
+VendingMachine OFF
+\end{verbatim}
+\end{minipage}\\
+&\\\hline
+\multicolumn{1}{c}{(a)} & \multicolumn{1}{c}{(b)}\\
+\end{tabular}
+\end{center}
+\caption{\pk{vending.TestDriver} output: (a) default class loader, and (b)
+\toolname class loader.}\label{fig:driver-output}
+\end{figure}

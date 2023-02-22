@@ -1,0 +1,15 @@
+! ** JCreator Workspace File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.00"
+LABEL := "VendingMachine"
+
+! Start Project Structure
+#[BeginProject]SOURCE := "VendingMachine.jcp" #[EndProject]
+
+! Start Last Document Structure
+#[BeginFile]SOURCE := "TestDriver.java" #[EndFile]
+#[BeginFile]SOURCE := "VendingMachine.java" #[EndFile]
+
+! Start Breakpoint Structure
+

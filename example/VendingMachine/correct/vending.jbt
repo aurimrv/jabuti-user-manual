@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JABUTI>
+    <PROJECT name="E:\auri\Meus documentos\LaTeX-2003\diversos\manuais\jabuti\example\VendingMachine\correct\vending.jbt" type="research" mobility="N" saveClasses="N">
+        <BASE_CLASS name="vending.TestDriver">
+        </BASE_CLASS>
+        <CLASSPATH path=".">
+        </CLASSPATH>
+        <AVOIDED_PACKAGES>
+        </AVOIDED_PACKAGES>
+        <INST_CLASS name="vending.Dispenser" size="1484" checksum="46-0">
+            <EXTEND name="java.lang.Object" level="1">
+            </EXTEND>
+            <SOURCE name="Dispenser.java">
+            </SOURCE>
+            <METHOD id="3" name="setValidSelection([I)V">
+                <All-Pri-Nodes id="0" totreq="1" act="1" inf="0">
+                    <NODE id="0" label="0" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                </All-Pri-Nodes>
+                <All-Sec-Nodes id="1" totreq="0" act="0" inf="0">
+                </All-Sec-Nodes>
+                <All-Pri-Edges id="2" totreq="0" act="0" inf="0">
+                </All-Pri-Edges>
+                <All-Sec-Edges id="3" totreq="0" act="0" inf="0">
+                </All-Sec-Edges>
+                <All-Pri-Uses id="4" totreq="0" act="0" inf="0">
+                </All-Pri-Uses>
+                <All-Sec-Uses id="5" totreq="0" act="0" inf="0">
+                </All-Sec-Uses>
+            </METHOD>
+            <METHOD id="0" name="&lt;init&gt;()V">
+                <All-Pri-Nodes id="0" totreq="2" act="2" inf="0">
+                    <NODE id="0" label="4" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="1" label="0" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                </All-Pri-Nodes>
+                <All-Sec-Nodes id="1" totreq="0" act="0" inf="0">
+                </All-Sec-Nodes>
+                <All-Pri-Edges id="2" totreq="1" act="1" inf="0">
+                    <EDGE id="0" from="0" to="4" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                </All-Pri-Edges>
+                <All-Sec-Edges id="3" totreq="0" act="0" inf="0">
+                </All-Sec-Edges>
+                <All-Pri-Uses id="4" totreq="1" act="1" inf="0">
+                    <C_USE id="0" var="L@0" def="0" use="4" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                </All-Pri-Uses>
+                <All-Sec-Uses id="5" totreq="0" act="0" inf="0">
+                </All-Sec-Uses>
+            </METHOD>
+            <METHOD id="1" name="dispense(II)I">
+                <All-Pri-Nodes id="0" totreq="27" act="27" inf="0">
+                    <NODE id="0" label="50" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="1" label="120" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="2" label="150" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="3" label="38" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="4" label="97" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="5" label="64" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="6" label="137" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="7" label="105" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="8" label="61" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="9" label="134" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="10" label="91" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="11" label="131" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="12" label="17" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="13" label="79" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="14" label="47" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="15" label="43" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="16" label="74" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="17" label="115" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="18" label="142" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="19" label="28" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="20" label="6" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="21" label="88" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="22" label="56" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="23" label="22" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="24" label="126" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="25" label="0" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="26" label="83" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                </All-Pri-Nodes>
+                <All-Sec-Nodes id="1" totreq="0" act="0" inf="0">
+                </All-Sec-Nodes>
+                <All-Pri-Edges id="2" totreq="31" act="31" inf="0">
+                    <EDGE id="0" from="120" to="126" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="1" from="74" to="79" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="2" from="50" to="150" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="3" from="43" to="47" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="4" from="88" to="91" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="5" from="56" to="61" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="6" from="17" to="28" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="7" from="126" to="131" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="8" from="137" to="150" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="9" from="17" to="22" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="10" from="91" to="150" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="11" from="79" to="83" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="12" from="0" to="17" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="13" from="97" to="105" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="14" from="47" to="50" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="15" from="61" to="97" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="16" from="61" to="64" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="17" from="134" to="137" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="18" from="115" to="120" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="19" from="131" to="134" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="20" from="22" to="28" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="21" from="38" to="43" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="22" from="0" to="6" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="23" from="83" to="88" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="24" from="22" to="56" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="25" from="142" to="150" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="26" from="64" to="74" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="27" from="105" to="115" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="28" from="97" to="142" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="29" from="6" to="150" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="30" from="28" to="38" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                </All-Pri-Edges>
+                <All-Sec-Edges id="3" totreq="0" act="0" inf="0">
+                </All-Sec-Edges>
+                <All-Pri-Uses id="4" totreq="24" act="24" inf="0">
+                    <C_USE id="0" var="L@3" def="97" use="120" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="1" var="L@3" def="97" use="150" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="2" var="L@3" def="137" use="150" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <P_USE id="3" var="L@3" def="97" from="97" to="105" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="4" var="L@3" def="97" from="97" to="142" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="5" var="L@2" def="0" from="17" to="28" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="6" var="L@2" def="0" from="17" to="22" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <C_USE id="7" var="L@2" def="0" use="79" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="8" var="L@2" def="0" use="43" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="9" var="S@java.lang.System.err" def="0" use="28" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="10" var="S@java.lang.System.err" def="0" use="6" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="11" var="L@2" def="0" use="56" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="12" var="L@0" def="0" use="56" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <P_USE id="13" var="L@2" def="0" from="22" to="56" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="14" var="L@2" def="0" from="22" to="28" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="15" var="L@1" def="0" from="0" to="17" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="16" var="L@1" def="0" from="0" to="6" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <C_USE id="17" var="L@3" def="0" use="150" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="18" var="L@1" def="0" use="120" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="19" var="S@java.lang.System.out" def="0" use="142" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="20" var="S@java.lang.System.err" def="0" use="64" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="21" var="S@java.lang.System.err" def="0" use="105" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <P_USE id="22" var="L@1" def="0" from="97" to="105" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="23" var="L@1" def="0" from="97" to="142" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                </All-Pri-Uses>
+                <All-Sec-Uses id="5" totreq="0" act="0" inf="0">
+                </All-Sec-Uses>
+            </METHOD>
+            <METHOD id="2" name="available(I)Z">
+                <All-Pri-Nodes id="0" totreq="7" act="7" inf="0">
+                    <NODE id="0" label="35" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="1" label="23" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="2" label="11" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="3" label="2" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="4" label="22" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="5" label="21" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="6" label="0" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                </All-Pri-Nodes>
+                <All-Sec-Nodes id="1" totreq="1" act="1" inf="0">
+                    <NODE id="0" label="32" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                </All-Sec-Nodes>
+                <All-Pri-Edges id="2" totreq="7" act="7" inf="0">
+                    <EDGE id="0" from="11" to="21" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="1" from="0" to="2" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="2" from="21" to="22" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="3" from="23" to="2" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="4" from="11" to="23" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="5" from="2" to="35" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="6" from="2" to="11" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                </All-Pri-Edges>
+                <All-Sec-Edges id="3" totreq="5" act="5" inf="0">
+                    <EDGE id="0" from="23" to="32" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="1" from="11" to="32" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="2" from="2" to="32" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="3" from="21" to="32" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="4" from="0" to="32" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                </All-Sec-Edges>
+                <All-Pri-Uses id="4" totreq="22" act="22" inf="0">
+                    <P_USE id="0" var="L@0.availSelectionVals" def="0" from="11" to="23" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="1" var="L@0.availSelectionVals" def="0" from="11" to="21" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="2" var="L@2" def="23" from="11" to="21" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="3" var="L@2" def="23" from="11" to="23" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="4" var="L@2" def="0" from="11" to="21" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="5" var="L@2" def="0" from="11" to="23" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="6" var="L@0.availSelectionVals" def="0" from="2" to="35" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="7" var="L@0.availSelectionVals" def="0" from="2" to="11" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="8" var="L@1" def="0" from="11" to="21" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="9" var="L@1" def="0" from="11" to="23" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="10" var="L@0" def="0" from="11" to="23" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="11" var="L@0" def="0" from="11" to="21" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="12" var="L@0.availSelectionVals[]" def="0" from="11" to="21" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="13" var="L@0.availSelectionVals[]" def="0" from="11" to="23" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="14" var="L@2" def="23" from="23" to="2" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="15" var="L@2" def="23" from="2" to="35" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="16" var="L@2" def="23" from="2" to="11" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="17" var="L@2" def="0" from="23" to="2" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="18" var="L@2" def="0" from="2" to="35" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="19" var="L@2" def="0" from="2" to="11" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="20" var="L@0" def="0" from="2" to="35" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="21" var="L@0" def="0" from="2" to="11" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                </All-Pri-Uses>
+                <All-Sec-Uses id="5" totreq="12" act="12" inf="0">
+                    <P_USE id="0" var="L@0.availSelectionVals" def="0" from="11" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="1" var="L@2" def="23" from="11" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="2" var="L@2" def="0" from="11" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="3" var="L@0.availSelectionVals" def="0" from="2" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="4" var="L@1" def="0" from="11" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="5" var="L@0" def="0" from="11" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="6" var="L@0.availSelectionVals[]" def="0" from="11" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="7" var="L@2" def="23" from="23" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="8" var="L@2" def="23" from="2" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="9" var="L@2" def="0" from="23" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="10" var="L@2" def="0" from="2" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="11" var="L@0" def="0" from="2" to="32" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                </All-Sec-Uses>
+            </METHOD>
+        </INST_CLASS>
+        <INST_CLASS name="vending.TestDriver" size="1340" checksum="46-0">
+            <EXTEND name="java.lang.Object" level="1">
+            </EXTEND>
+            <SOURCE name="TestDriver.java">
+            </SOURCE>
+            <METHOD id="0" name="&lt;init&gt;()V">
+                <All-Pri-Nodes id="0" totreq="2" act="2" inf="0">
+                    <NODE id="0" label="4" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="1" label="0" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                </All-Pri-Nodes>
+                <All-Sec-Nodes id="1" totreq="0" act="0" inf="0">
+                </All-Sec-Nodes>
+                <All-Pri-Edges id="2" totreq="1" act="1" inf="0">
+                    <EDGE id="0" from="0" to="4" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                </All-Pri-Edges>
+                <All-Sec-Edges id="3" totreq="0" act="0" inf="0">
+                </All-Sec-Edges>
+                <All-Pri-Uses id="4" totreq="0" act="0" inf="0">
+                </All-Pri-Uses>
+                <All-Sec-Uses id="5" totreq="0" act="0" inf="0">
+                </All-Sec-Uses>
+            </METHOD>
+            <METHOD id="1" name="main([Ljava/lang/String;)V">
+                <All-Pri-Nodes id="0" totreq="32" act="32" inf="0">
+                    <NODE id="0" label="154" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="1" label="151" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="2" label="120" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="3" label="181" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="4" label="69" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="5" label="66" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="6" label="95" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="7" label="137" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="8" label="105" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="9" label="31" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="10" label="166" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="11" label="134" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="12" label="102" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="13" label="163" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="14" label="48" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="15" label="78" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="16" label="15" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="17" label="45" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="18" label="117" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="19" label="145" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="20" label="175" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="21" label="70" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="22" label="111" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="23" label="110" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="24" label="7" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="25" label="87" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="26" label="128" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="27" label="23" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="28" label="189" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="29" label="52" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="30" label="0" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                    <NODE id="31" label="82" active="Y" covered="N" infeasible="N">
+                    </NODE>
+                </All-Pri-Nodes>
+                <All-Sec-Nodes id="1" totreq="0" act="0" inf="0">
+                </All-Sec-Nodes>
+                <All-Pri-Edges id="2" totreq="37" act="37" inf="0">
+                    <EDGE id="0" from="70" to="78" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="1" from="117" to="128" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="2" from="102" to="105" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="3" from="134" to="137" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="4" from="117" to="120" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="5" from="175" to="78" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="6" from="163" to="166" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="7" from="31" to="45" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="8" from="145" to="151" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="9" from="69" to="70" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="10" from="23" to="52" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="11" from="82" to="87" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="12" from="128" to="134" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="13" from="137" to="78" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="14" from="111" to="117" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="15" from="66" to="69" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="16" from="15" to="23" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="17" from="110" to="111" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="18" from="154" to="163" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="19" from="78" to="82" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="20" from="82" to="181" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="21" from="7" to="15" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="22" from="0" to="7" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="23" from="45" to="48" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="24" from="105" to="110" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="25" from="134" to="145" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="26" from="102" to="111" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="27" from="166" to="175" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="28" from="120" to="78" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="29" from="95" to="102" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="30" from="151" to="78" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="31" from="23" to="31" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="32" from="48" to="70" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="33" from="52" to="66" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="34" from="87" to="95" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="35" from="181" to="189" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                    <EDGE id="36" from="151" to="154" active="Y" covered="N" infeasible="N">
+                    </EDGE>
+                </All-Pri-Edges>
+                <All-Sec-Edges id="3" totreq="0" act="0" inf="0">
+                </All-Sec-Edges>
+                <All-Pri-Uses id="4" totreq="21" act="21" inf="0">
+                    <C_USE id="0" var="L@5" def="95" use="154" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="1" var="L@3" def="15" use="111" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="2" var="L@3" def="110" use="145" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="3" var="S@java.lang.System.in" def="0" use="31" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="4" var="L@3" def="15" use="128" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="5" var="L@3" def="110" use="111" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="6" var="L@5" def="95" use="105" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="7" var="S@java.lang.System.out" def="0" use="181" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="8" var="L@3" def="110" use="128" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="9" var="L@1" def="69" use="78" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="10" var="L@2" def="82" use="87" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <P_USE id="11" var="L@0" def="0" from="23" to="52" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <P_USE id="12" var="L@0" def="0" from="23" to="31" active="Y" covered="N" infeasible="N">
+                    </P_USE>
+                    <C_USE id="13" var="L@4" def="23" use="120" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="14" var="L@0" def="0" use="52" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="15" var="L@1" def="48" use="78" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="16" var="S@java.lang.System.out" def="0" use="70" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="17" var="L@0[]" def="0" use="52" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="18" var="L@4" def="23" use="137" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="19" var="L@3" def="15" use="145" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                    <C_USE id="20" var="L@4" def="23" use="166" active="Y" covered="N" infeasible="N">
+                    </C_USE>
+                </All-Pri-Uses>
+                <All-Sec-Uses id="5" totreq="0" act="0" inf="0">
+                </All-Sec-Uses>
+            </METHOD>
+        </INST_CLASS>
+        <CLASS name="vending.VendingMachine" size="0000" checksum="00000000">
+            <EXTEND name="java.lang.Object" level="1">
+            </EXTEND>
+        </CLASS>
+        <TEST_SET last_id="0">
+        </TEST_SET>
+    </PROJECT>
+</JABUTI>

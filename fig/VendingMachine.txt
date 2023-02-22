@@ -1,0 +1,39 @@
+/*01*/ package vending;
+/*02*/
+/*03*/ public class VendingMachine {
+/*04*/
+/*05*/     final private int COIN = 25;
+/*06*/     final private int VALUE = 50;
+/*07*/     private int totValue;
+/*08*/     private int currValue;
+/*09*/     private Dispenser d;
+/*10*/
+/*11*/     public VendingMachine() {
+/*12*/         totValue = 0;
+/*13*/         currValue = 0;
+/*14*/         d = new Dispenser();
+/*15*/     }
+/*16*/
+/*17*/     public void insertCoin() {
+/*18*/         currValue += COIN;
+/*19*/         System.out.println("Current value = " + currValue);
+/*20*/     }
+/*21*/
+/*22*/     public void returnCoin() {
+/*23*/         if (currValue == 0)
+/*24*/             System.err.println("No coins to return");
+/*25*/         else {
+/*26*/             System.out.println("Take your coins");
+/*27*/             currValue = 0;
+/*28*/         }
+/*29*/     }
+/*30*/
+/*31*/     public void vendItem(int selection) {
+/*32*/         int expense;
+/*33*/
+/*34*/         expense = d.dispense(currValue, selection);
+/*35*/         totValue += expense;
+/*36*/         currValue -= expense;
+/*37*/         System.out.println("Current value = " + currValue);
+/*38*/     }
+/*39*/ } // class VendingMachine

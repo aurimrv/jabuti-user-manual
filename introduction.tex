@@ -1,0 +1,33 @@
+\section{Introduction}\label{sec:introduction}
+
+\toolname is a set of tools designed for understanding and testing
+of Java programs. The main advantage of \toolname is that it does
+not require the Java source code to perform its activities. Such a
+characteristic allows, for instance, to use the tool for testing
+Java-based components.
+
+This report describes the functionalities of \toolname\ --
+\version and how the tester can use it to create testing projects
+through its graphical interface. Although \toolname can be run
+using scripts, in this report this aspect is not addressed. To
+illustrate the operational aspects of \toolname, through its
+graphical interface, we are using a simple example, adapted from
+Orso \etal~\cite{Orso01UCMS}, that simulates the behavior of a
+vending machine.
+
+The rest of this report is organized as follows.
+Section~\ref{sec:background} presents some background information
+about Java bytecode and a detailed description about the
+underlying models used by \toolname to derive intra-method testing
+requirements. A brief description of program slicing and
+complexity metrics are also presented in
+Section~\ref{sec:background}. Section~\ref{sec:example} describes
+the example that we will use to illustrate the functionalities of
+\toolname. Section~\ref{sec:project} describes how to create a
+testing project. Section~\ref{sec:coverage} illustrates how to use
+\toolname as a coverage analysis testing tool for Java
+programs/components. Section~\ref{sec:slice} shows how to use
+\toolname functionalities to localize faults. In
+Section~\ref{sec:metrics} describes the set of static metrics
+implemented in \toolname. Finally, in Section~\ref{sec:evolution},
+we present the perspectives for \toolname evolution.

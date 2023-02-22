@@ -1,0 +1,110 @@
+
+\begin{table}[!ht]
+\begin{center}\scriptsize
+\caption{Bytecode instruction set}\label{tab:bytecode}
+\begin{tabular}{|p{1in}|p{2in}|p{2.75in}|}\hline
+\textbf{Group}               & \textbf{Subgroup}                &   \textbf{Instruction Set}\cr\hline
+Do nothing                   & -                                &   \bci{nop}\cr\hline
+Load and Store               & Load a local variable
+                               onto the operand stack           &   \bci{aload}, \bci{aload\_$\langle$n$\rangle^\dag$},
+                                                                    \bci{dload}, \bci{dload\_$\langle$n$\rangle$},
+                                                                    \bci{fload}, \bci{fload\_$\langle$n$\rangle$},
+                                                                    \bci{iload}, \bci{iload\_$\langle$n$\rangle$},
+                                                                    \bci{lload}, \bci{lload\_$\langle$n$\rangle$}\cr\cline{2-3}
+                             & Store a value from the operand
+                               stack into a local variable      &   \bci{astore}, \bci{astore\_$\langle$n$\rangle$},
+                                                                    \bci{dstore}, \bci{dstore\_$\langle$n$\rangle$},
+                                                                    \bci{fstore}, \bci{fstore\_$\langle$n$\rangle$},
+                                                                    \bci{istore}, \bci{istore\_$\langle$n$\rangle$},
+                                                                    \bci{lstore}, \bci{lstore\_$\langle$n$\rangle$}\cr\cline{2-3}
+                             & Load a constant onto
+                               the operand stack                &   \bci{bipush}, \bci{sipush},
+                                                                    \bci{ldc}, \bci{ldc\_w},
+                                                                    \bci{ldc2\_w}, \bci{aconst\_null},
+                                                                    \bci{dconst\_$\langle$d$\rangle$}, \bci{fconst\_$\langle$f$\rangle$},
+                                                                    \bci{iconst\_m1}, \bci{iconst\_$\langle$i$\rangle$},
+                                                                    \bci{lconst\_$\langle$l$\rangle$}\cr\cline{2-3}
+                             & Giving access to more
+                               local variables using
+                               a wider index or to a
+                               larger immediate operand         &   \bci{wide}\cr\hline
+Arithmetic                   & Add                              &   \bci{dadd}, \bci{fadd},
+                                                                    \bci{iadd}, \bci{ladd}\cr\cline{2-3}
+                             & Subtract                         &   \bci{dsub}, \bci{fsub},
+                                                                    \bci{isub}, \bci{lsub}\cr\cline{2-3}
+                             & Multiply                         &   \bci{dmul}, \bci{fmul},
+                                                                    \bci{imul}, \bci{lmul}\cr\cline{2-3}
+                             & Divide                           &   \bci{ddiv}, \bci{fdiv},
+                                                                    \twb{idiv}, \twb{ldiv}\cr\cline{2-3}
+                             & Remainder                        &   \bci{drem}, \bci{frem},
+                                                                    \twb{irem}, \twb{lrem}\cr\cline{2-3}
+                             & Negate                           &   \bci{dneg}, \bci{fneg},
+                                                                    \bci{ineg}, \bci{lneg}\cr\cline{2-3}
+                             & Shift                            &   \bci{ishl}, \bci{ishr},
+                                                                    \bci{iushr}, \bci{lshl},
+                                                                    \bci{lshr}, \bci{lushr}\cr\cline{2-3}
+                             & Bitwise                          &   \bci{iand}, \bci{ior},
+                                                                    \bci{ixor}, \bci{land},
+                                                                    \bci{lor}, \bci{lxor}\cr\cline{2-3}
+                             & Local Variable Increment         &   \bci{iinc}\cr\cline{2-3}
+                             & Comparison                       &   \bci{dcmpg}, \bci{dcmpl},
+                                                                    \bci{fcmpg}, \bci{fcmpl},
+                                                                    \bci{lcmp}\cr\hline
+Type Conversion              & -                                &   \bci{d2f}, \bci{d2i},
+                                                                    \bci{d2l}, \bci{f2d},
+                                                                    \bci{f2i}, \bci{f2l},
+                                                                    \bci{i2b}, \bci{i2c},
+                                                                    \bci{i2d}, \bci{i2f},
+                                                                    \bci{i2l}, \bci{i2s},
+                                                                    \bci{l2d}, \bci{l2f},
+                                                                    \bci{l2i}\cr\hline
+Object Creation              & Create Class Instance            &   \twb{new}\cr\cline{2-3}
+and Manipulation             & Create Array                     &   \twb{newarray}, \twb{anewarray},
+                                                                    \twb{multianewarray}\cr\cline{2-3}
+                             & Access Fields of Classes         &   \twb{getfield}, \twb{getstatic},
+                                                                    \twb{putfield}, \twb{putstatic}\cr\cline{2-3}
+                             & Load an array component
+                               onto the operand stack           &   \twb{aaload}, \twb{baload},
+                                                                    \twb{caload}, \twb{daload},
+                                                                    \twb{faload}, \twb{iaload},
+                                                                    \twb{laload}, \twb{saload}\cr\cline{2-3}
+                             & Store a value from the
+                               operand stack as an
+                               array component                  &   \twb{aastore}, \twb{bastore},
+                                                                    \twb{castore}, \twb{dastore},
+                                                                    \twb{fastore}, \twb{iastore},
+                                                                    \twb{lastore}, \twb{sastore}\cr\cline{2-3}
+                             & Get the array length             &   \twb{arraylength}\cr\cline{2-3}
+                             & Check properties of
+                               class instances or arrays        &   \twb{checkcast}, \twb{instanceof}\cr\hline
+
+Control Transfer             & Unconditional Branch             &   \bci{goto}, \bci{goto\_w},
+                                                                    \bci{jsr}, \bci{jsr\_w},
+                                                                    \bci{ret}, \twb{athrow}\cr\cline{2-3}
+                             & Conditional Branch               &   \bci{if\_acmpeq}, \bci{if\_acmpne},
+                                                                    \bci{if\_icmpeq}, \bci{if\_icmpge},
+                                                                    \bci{if\_icmpgt}, \bci{if\_icmple},
+                                                                    \bci{if\_icmplt}, \bci{if\_icmpne},
+                                                                    \bci{ifeq}, \bci{ifge},
+                                                                    \bci{ifgt}, \bci{ifle},
+                                                                    \bci{iflt}, \bci{ifne},
+                                                                    \bci{ifnonnull}, \bci{ifnull}\cr\cline{2-3}
+                             & Compound Conditional Branch      &   \bci{lookupswitch}, \bci{tableswitch}\cr\hline
+Method Access                & Invocation                       &   \twb{invokeinterface}, \twb{invokespecial},
+                                                                    \twb{invokestatic}, \twb{invokevirtual}\cr\cline{2-3}
+                             & Return                           &   \twb{areturn}, \twb{dreturn},
+                                                                    \twb{freturn}, \twb{ireturn},
+                                                                    \twb{lreturn}, \twb{return}\cr\hline
+Stack Management             & -                                &   \bci{dup}, \bci{dup\_x1},
+                                                                    \bci{dup\_x2}, \bci{dup2},
+                                                                    \bci{dup2\_x1}, \bci{dup2\_x2},
+                                                                    \bci{pop}, \bci{pop2}, \bci{swap}\cr\hline
+Synchronization              & -                                &
+\twb{monitorenter}, \twb{monitorexit}\cr\hline Reserved
+& -                                &   \bci{breakpoint},
+\bci{impdep1}, \bci{impdep2}\cr\hline
+\multicolumn{3}{l}{$^\dag\langle$n$\rangle$ represents a valid index
+into the local variable array of the current frame~\cite{Lindholm99JVMS}.}\cr
+\end{tabular}
+\end{center}
+\end{table}

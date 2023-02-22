@@ -1,0 +1,121 @@
+
+%\section{CONCEITOS BÁSICOS} \label{sec:conceitos}
+\section{BASIC CONCEPTS\label{sec:conceitos}}
+
+    %Nesta seção são apresentados alguns conceitos, extraídos de \cite{Rapps85SSTD}, necessários para o entendimento deste trabalho.
+    In this section we present the main concepts of, as well as a brief introduction to, program graph and testing requirements used in this work.
+    More details can be found in \cite{Rapps85SSTD}.
+
+    %Um conceito que deve ser apresentado inicialmente é o de bloco de comandos.
+    %Um bloco de comandos é uma seqüência de comandos que \emph{sempre} são executados de forma consecutiva em um programa.
+    A \emph{statement block} is a sequence of statements that are \emph{always} executed in sequence in a program.
+    %Dessa forma, os desvios de controle só ocorrem para o começo ou a partir do final de um bloco, nunca em seu interior, ou seja, quando o primeiro comando de um bloco é executado, todos os demais também o serão.
+    When the first statement of a block is executed, so are the remaining statements; branching only occurs either to the beginning or from the end of the block.
+
+    %Definido o conceito de bloco de comandos, pode-se definir o que é um grafo de programa.
+    %$G = (N, E)$ é um Grafo de Programa de um programa $P$ se para cada bloco de comandos de $P$ existe um nó $n \in N$ e para cada possível transferência de controle entre um bloco representado por $n_1$ e um bloco representado por $n_2$ existe um arco $(n_1, n_2) \in E$.
+    $G = (N, E)$ is a \emph{program graph} of a program $P$ if for each statement block of $P$ there exists a node $n \in N$ and for each possible control transfer between a block represented by $n_1$ and a block represented by $n_2$ there exists an edge $(n_1, n_2) \in E$.
+    %Em um grafo, o nó correspondente ao bloco cujo primeiro comando é o comando inicial do programa é denominado \emph{nó inicial} e o nó correspondente ao bloco cujo último comando é o comando final do programa é denominado \emph{nó final}.
+    In a program graph, the node corresponding to the statement block whose first statement is the first statement of the program is denominated \emph{start node}.
+    Conversely, the node corresponding to the block whose last statement is the last statement of the program is denominated \emph{exit node}.
+
+    %O grafo de programa pode ser enriquecido com informações provenientes da análise de fluxo de dados do programa, adicionando-se aos nós e arcos do grafo dados sobre atribuições (definições) de variáveis e sobre usos em computações (uso computacional, ou c-uso, associado a um nó do grafo) ou em predicados que influenciam o fluxo de controle do programa (uso predicativo, ou p-uso, associado a um arco do grafo).
+    The program graph can be enhanced with information obtained by analyzing the data flow of the program.
+    We associate to the nodes of the graph information about the assignments (\emph{definitions}) of variables and their usages in computation (computational-usages, or \emph{c-usages}).
+    We associate to the edges of the graph information about the usage of variables in the expression that rule the control flow of the program to that edge (predicative usages, or \emph{p-usages}).
+    %Esse grafo é denominado \emph{grafo \mbox{def-uso}} \cite{Rapps85SSTD}.
+    This enriched graph is denominated \emph{\mbox{def-use} graph} \cite{Rapps85SSTD}.
+    %A Figura~\ref{fig:graph} apresenta um programa Pascal\footnote{Esse programa é uma conversão para Pascal do pseudo-código utilizado por Rapps e Weyuker em \cite{Rapps85SSTD}.} para o cálculo de $z=x^y$ e o grafo \mbox{def-uso} correspondente.
+    Figure~\ref{fig:graph} presents a Pascal program\footnote{This program is a Pascal version of the pseudo-code used by \citet{Rapps85SSTD}.} to calculate $z = x ^ y$ and the corresponding \mbox{def-use} graph.
+\begin{figure*}[!ht]
+\hfil
+\begin{subfloat}
+\begin{minipage}[b]{0.4\textwidth}
+\small
+\centering \textsc{power.pas}
+\lstset{keywords={alfa,and,array,begin,boolean,byte,case,char,const,div,do,%
+      downto,else,end,false,file,for,function,get,goto,if,in,integer,%
+      label,maxint,mod,new,not,of,or,pack,packed,page,program,put,%
+      procedure,read,readln,real,record,repeat,reset,rewrite,set,text,%
+      then,to,true,type,unpack,until,var,while,with,write,writeln}}
+\lstset{sensitive=false} \lstset{doublecomment={(*}{*)}{\{}{\}}}
+\lstset{frame=t}
+\begin{lstlisting}{}
+{1} begin
+{1}   readln(x);
+{1}   readln(y);
+{1}   if y > 0
+{2}     then p:=y
+{3}     else p:=-y;
+{4}   z := 1;
+{5}   while p <> 0 do
+{6}     begin
+{6}       p := p - 1;
+{6}       z := z * x;
+{6}     end;
+{7}   if y < 0
+{8}     then z := 1/z;
+{9}   writeln(z);
+{10} end.
+\end{lstlisting}
+\hrulefill
+\end{minipage}
+\caption{\label{fig:graph-prog}}
+\end{subfloat}
+\hfil
+\begin{subfloat}
+\begin{minipage}[b]{0.4\textwidth}
+%    \includegraphics[height=48ex]{fig/graph.\figext}
+    \includegraphics[height=48ex]{fig/graph}
+\end{minipage}
+\caption{}
+\end{subfloat}
+\hfil
+\caption{
+    % (a) Um programa que calcula $z=x^y$.
+    (a) A Pascal program to calculate $z = x ^ y$ and  
+    % (b) Grafo \mbox{def-uso} correspondente
+    (b) the corresponding \mbox{def-use} graph \cite{Rapps85SSTD}
+} \label{fig:graph}
+\end{figure*}
+
+    %Observe-se que a execução de um programa induz a um caminho $P$, ou seja, uma seqüência de nós que corresponde aos blocos percorridos durante a execução.
+    Each execution of a program induces a path in the graph that corresponds to the blocks traversed during the execution.
+    %Considerando-se um grafo \mbox{def-uso}, um caminho $P$ é denominado \emph{livre de definição com relação a uma variável \texttt{x}}, se não ocorrem definições ou redefinições de \texttt{x} em $P$ (exceto, possivelmente no último nó).
+    Considering a \mbox{def-use} graph $G$, a path or subpath $\pi = (n_i, \dots, n_k)$ is \emph{definition clear w.r.t.\ a variable \texttt{x}} if \texttt{x} is not (re-)defined in $\pi$ (except eventually in the last node of $\pi$).
+    A path is \emph{simple} if all nodes, except possibly the first and last, are distinct.
+    A path is \emph{complete} if its initial node is the start node and its final node is the exit node.
+
+    %Define-se a tripla \assoc{n}{n_1}{x} como sendo uma associação definição-c-uso para um grafo \mbox{def-uso} $G$, se existir em $G$ um caminho livre de definição em relação a \texttt{x} do nó $n$ ao nó $n_1$ e um uso computacional da variável \texttt{x} no nó $n_1$.
+    A triple \assoc{n}{n_1}{x} is a \emph{defi\-ni\-tion-c-usa\-ge association} in $G$ if there exists a definition of \texttt{x} in $n$, a computational usage of \texttt{x} in $n_1$ and a path $\pi$ from $n$ to $n_1$ that is definition clear w.r.t.\ \texttt{x}.
+    %Analogamente, a tripla \assoc{n}{(n_1, n_2)}{x} é uma associação definição-p-uso para $G$, se existir em $G$ um caminho livre de definição em relação a \texttt{x} do nó $n$ ao nó $n_1$ e um uso predicativo da variável \texttt{x} no arco $(n_1,n_2)$.
+    Conversely, a triple \assoc{n}{(n_1, n_2)}{x} is a \emph{definition-p-usage association} for $G$ if there exists a definition of \texttt{x} in $n$, a predicative usage of \texttt{x} in $(n_1, n_2)$ and a path $\pi$ from $n$ to $(n_1, n_2)$ that is definition clear w.r.t.\ \texttt{x}.
+    %Um caminho $P$ executa uma associação \assoc{n}{n_1}{x} ou uma associação \assoc{n}{(n_1, n_2)}{x}, se existir um subcaminho $p' = (n, ..., n_1)$ em $P$ tal que $p'$ é livre de definição em relação a \texttt{x}.
+    A path $\pi$ executes an \emph{association} \assoc{n}{n_2}{x} or an \emph{association} \assoc{n}{(n_1, n_2)}{x} if there exists a subpath $\pi' = (n, \ldots, n_2)$ in $\pi$ such that $\pi'$ is definition clear w.r.t.\ \texttt{x}.
+    %Segundo Rapps e Weyuker \cite{Rapps85SSTD}, um conjunto de caminhos $P$ satisfaz o critério Todos-usos se, para toda associação definição-c-uso e toda associação definição-p-uso, $P$ possui um caminho que a executa.
+
+%    According to \citet{Rapps85SSTD}, a set of paths $P$ satisfies the \emph{all-uses} criteria if, for each definition-c-usage association and each definition-p-usage association, there exists a path $p \in P$ that executes it.
+    %A cobertura de um conjunto $P$ em relação a um conjunto de associações é a porcentagem das associações executadas por ele.
+ %   The coverage of $P$ w.r.t.\ a set of associations is the percentage of associations executed by the paths in $P$.
+    Based on these concepts, \citet{Rapps85SSTD} defined a family of data flow testing criteria.
+    Next, we present the definition of a subset of these criteria which are implemented in ProTesC/Pascal.
+    Considering a def-use graph $G$ and a set $\Pi$ of complete paths in $G$, then:
+\begin{compactdesc}
+\item[All-Nodes:]
+    $\Pi$ satisfies the criterion if every node of $G$ is included in at least one $\pi \in \Pi$;
+\item[All-Edges:]
+    $\Pi$ satisfies the criterion if every edge of $G$ is included in at least one $\pi \in \Pi$;
+%\item[All-Defs:]
+%    $\Pi$ satisfies the criterion if for every node $n$ of $G$ and every variable \texttt{x} defined in $n$, at least one $\pi \in \Pi$ includes a definition clear path w.r.t. \texttt{x} from $n$ to a node or edge that uses \texttt{x};
+%\item[All-P-Uses:]
+%    $\Pi$ satisfies the criterion if for every node $n$ and every variable \texttt{x} defined in $n$, at least one $\pi \in \Pi$ includes a definition clear path w.r.t. \texttt{x} from $n$ to every edge that contains a usage of \texttt{x};
+\item[All-Uses:]
+    $\Pi$ satisfies the criterion if for every node $n$ and every variable \texttt{x} defined in $n$, at least one $\pi \in \Pi$ includes \emph{at least} one definition clear path w.r.t. \texttt{x} from $n$ to every node and every edge that contains a usage of \texttt{x};
+%\item[All-du-paths:]
+%    $\Pi$ satisfies the criterion if for every node $n$ and every variable \texttt{x} defined in $n$, at least one $\pi \in \Pi$ includes \emph{every} simple definition clear path w.r.t. \texttt{x} from $n$ to every node and every edge that contains a usage of \texttt{x};
+\end{compactdesc}
+
+    In this paper, we will use the All-Uses criterion to illustrate both the Prolog procedures (Section~\ref{sec:prolog}) and the operational aspects of the ProTesC/Pascal prototype (Section~\ref{sec:operacionais}).
+
+
+%\afterpage{\FloatBarrier}

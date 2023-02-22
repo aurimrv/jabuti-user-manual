@@ -1,0 +1,27 @@
+digraph average
+{
+	size="7.5,10"; 
+	ratio=auto;
+	nodesep=0.1;
+	
+	node[fontname="Helvetica",fontsize=24];
+	
+	elipse54[label=".\n.\n.",color=white];
+	elipse68[label=".\n.\n.",color=white];
+	elipse76[label=".\n.\n.",color=white];
+
+	{54} -> {54.82};
+	{54.82 -> elipse54 -> 54.89};
+	{54.89} -> {57}
+
+	{68} -> {68.82};
+	{68.82 -> elipse68 -> 68.89};
+	{68.89} -> {71}
+
+	{76} -> {76.82};
+	{76.82 -> elipse76 -> 76.89};
+	{76.89} -> {79}
+
+	{57 ; 71} -> 91;
+	{79} -> 81;
+}

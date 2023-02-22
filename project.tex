@@ -1,0 +1,162 @@
+\section{How to Create a Testing Project}\label{sec:project}
+
+In \toolname the testing activity requires the creation of a
+testing project. A testing project is characterized by a file
+storing the necessary information about (i) the base class file,
+(ii) the complete set of classes required by the base class, (iii)
+the set of classes to be instrumented (tested), and (iv) the set
+of classes that are not under testing. Additional information,
+such as the \pk{CLASSPATH} environment variable necessary to run
+the base class is also stored in the project file, whose extension
+is \prjext. During the execution of any \pk{.class} file that
+belongs to the set of classes under testing of a given project,
+dynamic control-flow information (execution trace) is collected
+and saved in a separate file that has the same name of the project
+file but with a different extension (\trcext).
+
+For example, considering the vending machine example, described in
+Section~\ref{sec:example}, the \pk{vending} package is composed by
+three \bci{.java} files: \pk{VendingMachine.java},
+\pk{Dispenser.java} and \pk{TestDriver.java}. Suppose that these
+files are saved in a directory named \verb+~\example+. The
+directory structure is like:
+
+\begin{cmd}
+auri@AURIMRV ~
+$ ls -l example/*
+-rw-r--r--    1 auri         1313 Aug  6 09:07 Dispenser.java
+-rw-r--r--    1 auri         1340 Aug  6 09:07 TestDriver.java
+-rw-r--r--    1 auri          923 Aug  6 09:07 VendingMachine.java
+\end{cmd}
+
+To compile such an application one of the following command can be
+used:
+
+\begin{cmd}
+auri@AURIMRV ~
+$ javac -d example example/*.java
+\end{cmd}
+
+or
+
+\begin{cmd}
+auri@AURIMRV ~
+$ javac -g -d example example/*.java
+\end{cmd}
+
+Observe that in the later command, the debug option is activated,
+thus, the generated \pk{.class} files contains more information,
+such as the real variable names. In this report we are using class
+files compiled with the debug option.
+
+After the Java source files have been compiled, the
+\verb+~\example+ directory contains the following structure:
+
+\begin{cmd}
+auri@AURIMRV ~
+$ ls -l example/*
+-rw-r--r--    1 auri         1313 Aug  6 09:07 Dispenser.java
+-rw-r--r--    1 auri         1340 Aug  6 09:07 TestDriver.java
+-rw-r--r--    1 auri          923 Aug  6 09:07 VendingMachine.java
+example/vending:
+vending:
+total 6
+-rw-r--r--    1 auri         1478 Aug  6 09:49 Dispenser.class
+-rw-r--r--    1 auri         1340 Aug  6 09:49 TestDriver.class
+-rw-r--r--    1 auri         1253 Aug  6 09:49 VendingMachine.class
+\end{cmd}
+
+Now, from the generated \pk{.class} files, the user can create a
+project using \toolname. To do this, the first step is to invoke
+\toolname's graphical interface. Supposing that \toolname is
+installed \rev{on} \verb+~\Tools\jabuti+, the command below causes
+the invocation of its graphical interface.
+
+\begin{cmd}
+auri@AURIMRV ~/example
+$ java -cp ".;..\Tools\jabuti;\
+>..\Tools\jabuti\lib\BCEL.jar;\
+>..\Tools\jabuti\lib\jviewsall.jar;\
+>..\Tools\jabuti\lib\crimson.jar;\
+>..\Tools\jabuti\lib\junit.jar" gui.JabutiGUI
+\end{cmd}
+
+Observe that the tool requires that some third-party libraries
+(BCEL~\cite{Dahm01BCEB} to manipulate the Java bytecode files,
+ILOG JViews~\cite{Ilog03JVIE} to visualize the \DUG, Crimson to
+manipulate XML files\footnote{Such a package is required when a
+java compiler under version 1.4.1 is used (considering the Sun
+compiler)).}, and JUnit~\cite{JUnit02UDCA} to import test sets.)
+to be included in the \pk{CLASSPATH} to allow its execution. The
+current directory, (``.'' in our example), and the base directory
+of the tool (\verb+..\Tools\jabuti+) are also included to allow
+the correct execution of our example and the tool itself. If
+desired, the user can set the \pk{CLASSPATH} environment variable
+as a system variable that is initialized during the boot process.
+In this case, to call \toolname's GUI, the parameter \pk{-cp} can
+be omitted. Figure~\ref{fig:jabuti-initial} illustrates the
+\toolname's initial window.
+
+\input{fig-jabuti-initial}
+
+To create a new project, the first step is to select a base
+\pk{.class} file from \pk{File $\rightarrow$ Open Class} menu. A
+dialog window, as illustrated in
+Figure~\ref{fig:project-select-dir} appears. From this dialog
+window, the tester selects the directory where the base class file
+is located and then select the base class file itself
+(Figure~\ref{fig:project-select-class}). Once the base class file
+is selected the tool automatically identifies the package that it
+belongs (if any) and fills out the \pk{Package} field with the
+package's name. The \pk{Classpath} should contains only the path
+necessary to run the selected base class. In our example, since
+the tool is being called inside the \verb+~\example+ directory, to
+run \pk{vending.TestDriver} it is necessary that the
+\pk{Classpath} field contains only the current directory, as shown
+in Figure~\ref{fig:project-select-class}.
+
+\input{fig-jabuti-open-class}
+
+By clicking the \pk{Open} button
+(Figure~\ref{fig:project-select-class}), the \pk{Project Manager}
+window, as illustrated in Figure~\ref{fig:project-manager}, will
+be displayed. From the selected base class file (\pk{TestDriver}
+in our example) the tool identifies the complete set of system and
+non-system class files necessary to execute \pk{TestDriver}.
+Currently, \toolname does not allows the instrumentation of system
+class files. Therefore, the complete set of non-system class files
+(user's classes) relate to \pk{TestDriver} can be instrumented.
+From the \pk{Project Manager} window (left side) the user can
+select the class files that will be tested. At least one class
+file must be selected. In our example, we select
+\pk{VendingMachine} and \pk{Dispenser} to be instrumented.
+\pk{TestDriver} was not selected since it is only the driver that
+allows the tester to observe whether the behavior of
+\pk{VendingMachine} and \pk{Dispenser} are correct with respect to
+their specification.
+
+\input{fig-project-manager}
+
+Moreover, the tester must give a name to the project being created
+(\pk{vending\prjext} in our example) by clicking on the
+\pk{Select} button. By clicking on the \pk{Ok} button, \toolname
+creates a new project (\pk{vending.jbt} in our example),
+constructs the \DUG for each method of each class under testing,
+derives the complete set of testing requirements for each
+criterion, calculates the weight of each testing requirement, and
+presents the bytecode of a given class under testing. By creating
+a project, the tester does not need to go through this entire
+process again if he/she intends to test the same set of class
+files. Next time, he/she can just go to \pk{File $\rightarrow$
+Open Project} menu option and reload a previously saved project.
+
+Once the project is created, the tester just need to open it and
+the tool automatically detects the classes that compose it.
+\toolname can be used for analyzing the coverage of a given class
+file, for debugging the class file using the slice tool and for
+collecting static metrics information. \toolname also allows the
+visualization of the Def-Use Graph (\DUG) of each method in a
+given class file as well as the visualization of the source code,
+when available. Different kinds of testing reports can also be
+generated considering different levels of abstraction. The
+following sections describe these features in detail.

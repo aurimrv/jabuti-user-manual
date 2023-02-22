@@ -1,0 +1,45 @@
+/*01*/ package vending;
+/*02*/
+/*03*/ public class Dispenser {
+/*04*/     final private int MINSEL = 1;
+/*05*/     final private int MAXSEL = 20;
+/*06*/     final private int VAL = 50;
+/*07*/
+/*08*/     private int[] availSelectionVals =
+/*09*/             { 1, 2, 3, 4, 6, 7, 8, 9, 10,
+/*10*/                 11, 12, 13, 14, 15, 16, 17, 19};
+/*11*/
+/*12*/     public int dispense(int credit, int sel) {
+/*13*/         int val = 0;
+/*14*/
+/*15*/         if (credit == 0)
+/*16*/             System.err.println("No coins inserted");
+/*17*/         else if ((sel < MINSEL) || (sel > MAXSEL))
+/*18*/             System.err.println("Wrong selection " + sel);
+/*19*/         else if (!available(sel))
+/*20*/             System.err.println("Selection " + sel + " unavailable");
+/*21*/         else {
+/*22*/             val = VAL;
+/*23*/             if (credit < val) {
+/*24*/                 System.err.println("Enter " + (val - credit) + " coins");
+/*25*/             } else
+/*26*/                 System.out.println("Take selection");
+/*27*/         }
+/*28*/         return val;
+/*29*/     }
+/*30*/
+/*31*/     private boolean available(int sel) {
+/*32*/         try {
+/*33*/             for (int i = 0; i < availSelectionVals.length; i++)
+/*34*/                 if (availSelectionVals[i] == sel)
+/*35*/                     return true;
+/*36*/         } catch (NullPointerException npe) {
+/*37*/             return false;
+/*38*/         }
+/*39*/         return false;
+/*40*/     }
+/*41*/
+/*42*/     public void setValidSelection(int[] v) {
+/*43*/         availSelectionVals = v;
+/*44*/     }
+/*45*/ } // class Dispenser

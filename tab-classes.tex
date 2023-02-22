@@ -1,0 +1,74 @@
+\begin{table}[!ht]
+\caption{Different classes of bytecode
+instruction.}\label{tab:classes}
+\begin{center}\scriptsize
+\begin{tabular}{|c|p{0.4\textwidth}|p{0.4\textwidth}|}\hline
+\textbf{Class}&\textbf{Bytecode Instructions}&\textbf{Data-Flow Implication}\\\hline
+0   & \setbci{\ctrl{athrow}, \ctrl{goto}, \ctrl{goto\_w},
+    \ctrl{if\_acmpeq}, \ctrl{if\_acmpne}, \ctrl{if\_icmpeq}, \ctrl{if\_icmpge},
+    \ctrl{if\_icmpgt}, \ctrl{if\_icmple}, \ctrl{if\_icmplt}, \ctrl{if\_icmpne},
+    \ctrl{ifeq}, \ctrl{ifge}, \ctrl{ifgt}, \ctrl{ifle}, \ctrl{iflt}, \ctrl{ifne},
+    \ctrl{ifnonnull}, \ctrl{ifnull}, \ctrl{lookupswitch}, \ctrl{tableswitch},
+    \ctrl{areturn}, \ctrl{dreturn}, \ctrl{freturn}, \ctrl{ireturn}, \ctrl{lreturn}, \ctrl{return},
+    \ctrl{ret},
+    monitorenter, monitorexit, pop, pop2,
+    breakpoint, impdep1, impdep2, nop,
+    checkcast,
+    wide, swap} &
+    Instructions in this class have \textbf{no implication} for the flow of data.\\\hline
+1   &  \setbci{\ctrl{invokeinterface}, \ctrl{invokespecial}, \ctrl{invokestatic}, \ctrl{invokevirtual},
+    \ctrl{jsr}, \ctrl{jsr\_w},
+    dadd, ddiv, dmul, dneg, drem, dsub, fadd, fdiv, fmul, fneg, frem, fsub,
+    iadd, iand, idiv, imul, ineg, ior, irem, ishl, ishr, isub, iushr, ixor,
+    ladd, land, ldiv, lmul, lneg, lor, lrem, lshl, lshr, lsub, lushr,
+    lxor,
+    arraylength, instanceof,
+    aconst\_null, bipush, dconst, fconst, iconst, lconst, sipush,
+    ldc, ldc\_w, ldc2\_w,
+    d2f, d2i, d2l, f2d, f2i, f2l, i2b, i2c, i2d, i2f, i2l, i2s, l2d, l2f,
+    l2i,
+    new, multianewarray, anewarray, newarray,
+    dcmpg, dcmpl, fcmpg, fcmpl, lcmp}
+    &
+    Instructions in this class have \textbf{no implication} for the flow of data.
+    In addition, they leave an unknown element at the top of the operand stack.
+    Accesses to such element will not characterize any use or definition. For example,
+    instruction \bci{new} pushes an object reference onto the stack. Further use
+    of such reference as a field access is not regarded as a definition or use.\\\hline
+2   & \setbci{aaload, baload, caload, daload, faload,
+    iaload, laload, saload}
+    & Loads an array element to the top of the operand stacks and
+    indicating the \textbf{use} of the array.\\\hline
+3   & \setbci{aastore, bastore, castore, dastore,
+    fastore, iastore, lastore, sastore}
+    & Stores the value on the top of the operand stack
+    into an array element, indicating the \textbf{definition} of the array.\\\hline
+4   & \setbci{putfield}
+    & Stores the value on the top of the operand stack into an
+    instance field, indicating the \textbf{definition} of such an instance field.\\\hline
+5   & \setbci{putstatic}
+    & Stores the value on the top of the operand stack into a
+    class field, indicating the \textbf{definition} of such a class field.\\\hline
+6   & \setbci{dup, dup2, dup\_x1, dup\_x2, dup2\_x1, dup2\_x2}
+    & Duplicates the value onto the top of the operand stack and
+    has \textbf{no implication} for the flow of data.\\\hline
+7   & \setbci{aload, dload, fload, iload, lload}
+    & Loads the value of a given local variable onto the top
+    of the operand stack, indicating a \textbf{use} of such a local variable.\\\hline
+8   & \setbci{astore, dstore, fstore, istore, lstore}
+    & Stores the value on
+    the top of the operand stack into a local variable,
+    indicating a \textbf{definition} of such a variable.\\\hline
+9   & \setbci{getfield}
+    & Loads an instance field onto the top of the operand stack,
+    indicating a \textbf{use} of such an instance field.\\\hline
+10  & \setbci{getstatic}
+    & Loads a class field onto the top of the operand stack,
+    indicating a \textbf{use} of such a class field.\\\hline
+11  & \setbci{iinc}
+    & Increments the value of a given local variable,
+    indicating a \textbf{use} and a
+    \textbf{definition} of such a local variable.\\\hline
+\end{tabular}
+\end{center}
+\end{table}

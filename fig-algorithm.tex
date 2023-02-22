@@ -1,0 +1,47 @@
+\begin{figure}[!ht]
+{\cmdsize
+\begin{center}
+\begin{tabular}{|l|}\hline\\
+\begin{minipage}{5in}
+\noindent\# Input: $iG$, the instruction-CFG $GI = \langle NI, EI_p,EI_s, si, TI\rangle$ to be reduced; \\
+\# Output: $bG$, the block CFG $bG = \langle N, E_p, E_s, s,
+T\rangle$
+\\ \ \\
+%
+01\bigind    s := NewNodeTo(si) \\
+02\bigind    foreach $x \in N$ \\
+03\bigind    \ind if $x$ has no successor \\
+04\bigind    \ind\ind $T := T \cup \{x\}$ \\ \ \\
+%
+     \# Auxiliary function: NewNodeTo \\
+     \# Input: A node $y$ from $iG$ \\
+     \# Output: A node from $bG$ where $y$ has been inserted \\ \ \\
+%
+05\bigind     $ins$ := the instruction in $y$ \\
+06\bigind     if the node $y$ has already been visited \\
+07\bigind     \ind return the node $w \in N$ that contains $ins$ \\
+08\bigind     $CurrentNode :=$ new block node \\
+09\bigind     $N := N \cup \{CurrentNode\}$ \\
+10\bigind     $x := y$ \\
+11\bigind     repeat \\
+12\bigind     \ind Include $x$ as part of $CurrentNode$ \\
+13\bigind     \ind Mark $x$ as visited \\
+14\bigind     \ind if $x$ should terminated the current block \\ % aqui é linha xx
+15\bigind     \ind\ind foreach $v$ such that $(x,v) \in EI_p$ \\
+16\bigind     \ind\ind\ind $E_p := E_p \cup \{(CurrentNode, NewNodeTo(v))\}$ \\
+17\bigind     \ind\ind foreach $v$ such that $(x,v) \in EI_s$ \\
+18\bigind     \ind\ind\ind $E_s := E_s \cup \{(CurrentNode, NewNodeTo(v))\}$ \\
+19\bigind     \ind\ind $x := null$ \\
+20\bigind     \ind else \\
+21\bigind     \ind\ind if there exists a $v$ such that $(x,v) \in EI_p$ \\
+22\bigind     \ind\ind\ind $x := v$ \\
+23\bigind     \ind\ind else \\
+24\bigind     \ind\ind\ind $x := null$ \\
+25\bigind     while $x \neq null$ \\
+26\bigind     return $CurrentNode$ \\
+\end{minipage}\\\hline
+\end{tabular}
+\end{center}
+}
+\caption{Algorithm to generate the CFG from bytecode.}\label{fig:algorithm}
+\end{figure}

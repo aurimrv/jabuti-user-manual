@@ -1,0 +1,17 @@
+digraph copy
+{
+	size="7.5,10"; 
+	ratio=auto;
+	nodesep=0.1;
+	0 -> { 4; 53; };
+	4 -> { 47; };
+	47 -> { 53; 17; };
+	53 [style=bold];
+	17 [shape=doublecircle];
+	17 -> { 31; };
+	31 [shape=doublecircle];
+	31 -> { 34; };
+	34 [shape=doublecircle];
+	34 -> { 44; };
+	44 -> { 47; };
+}

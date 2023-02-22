@@ -1,0 +1,14 @@
+digraph average
+{
+	size="7.5,10"; 
+	ratio=auto;
+	nodesep=0.1;
+	node[fontname="Helvetica",fontsize=24];
+	
+	elipse[label=".\n.\n.",color=white];
+	{54 ; 68 ; 76} -> {82};
+	{82 -> elipse -> 89};
+	{89} -> {57 ; 71 ; 79}
+	{57 ; 71} -> 91;
+	{79} -> 81;
+}

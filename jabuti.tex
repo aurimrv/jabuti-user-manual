@@ -1,0 +1,154 @@
+\documentclass[a4paper,11pt]{article}
+
+%----------------------Packages------------------------------------------------
+\usepackage{ae}
+\usepackage{subfigure}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+\usepackage[T1]{fontenc}
+\usepackage[verbose,left=20mm,right=20mm,top=20mm,bottom=20mm]{geometry}
+
+\usepackage{titlesec}
+\usepackage{colortbl}
+
+\usepackage{afterpage}
+\usepackage{fancyvrb}
+\usepackage{icmcheader}
+%------------------------------------------------------------------------------
+
+%----------------------General Definitions-------------------------------------
+\input{macros.tex}
+%------------------------------------------------------------------------------
+
+\begin{document}
+%-------------------Cabeçalho-------------------------------------------
+\secao{DEPARTAMENTO DE CIÊNCIAS DE COMPUTAÇÃO E ESTATÍSTICA}
+\subsecao{Caixa Postal 668 -- CEP 13560-970 -- São Carlos, SP --
+Fone (16) 273-9655 -- Fax (16) 273-9751}
+
+\makeicmcheader
+
+\vspace*{3cm}
+
+\begin{center}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+{\noindent\normalfont \LARGE\bfseries \toolname\ -- Java Bytecode} \\
+{\noindent\normalfont \LARGE\bfseries Understanding and Testing} \\
+
+\vspace*{0.5cm}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[scale=1.0]{fig/jabuti.eps}
+\end{center}
+\end{figure}
+
+{\noindent\normalfont\large\bfseries User's Guide}\\
+{\noindent\normalfont Version 1.0 -- Java}
+
+\vspace*{0.5cm}
+
+A. M. R. Vincenzi$^{\dag}$,
+W.  E.  Wong$^{\S}$,
+M.  E.  Delamaro$^{\ddag}$ and
+J.  C.  Maldonado$^{\dag}$
+ \\[0.5cm]
+
+{\small
+{$^\dag$Instituto de Ci\^encias Matem\'aticas e de Computa\c c\~ao}\\
+{Universidade de S\~ao Paulo}\\
+{S\~ao Carlos, S\~ao Paulo, Brazil}\\
+{\tt \{auri, adenilso, jcmaldon\}@icmc.usp.br}\\[0.5cm]
+%-------------------------------------------------------------
+\begin{minipage}{0.45\textwidth}
+\centering
+{$^\S$Department of Computer Science} \\
+{University of Texas at Dallas} \\
+{Richardson, Texas, USA} \\
+{\tt ewong@utdallas.edu}\\
+\end{minipage}
+%-------------------------------------------------------------
+\hfill
+\begin{minipage}{0.45\textwidth}
+\centering
+{$^\ddag$Faculdade de Inform\'atica}\\
+{Centro Universit\'ario Eur\'ipides de Mar\'ilia}\\
+{Mar\'ilia, S\~ao Paulo, Brazil}\\
+{\tt delamaro@fundanet.br}\\
+\end{minipage}
+}
+\vspace*{3cm}
+
+\noindent{\normalfont \rmfamily São Carlos, SP, Brazil \\ March, 2003}\\[12pt]
+\end{center}
+\thispagestyle{empty}
+\setcounter{page}{0}
+%------------------------------------------------------------------------------
+
+\frontmatter
+\tableofcontents
+
+%----------------------Abstract------------------------------------------------
+\input{abstract}
+%------------------------------------------------------------------------------
+\onehalfspace
+\mainmatter
+%----------------------Introduction--------------------------------------------
+\input{introduction}
+%------------------------------------------------------------------------------
+
+%----------------------Background----------------------------------------------
+\input{background}
+%------------------------------------------------------------------------------
+
+%----------------------Example-------------------------------------------------
+\input{example}
+%------------------------------------------------------------------------------
+
+%----------------------Tool----------------------------------------------------
+\input{tool}
+%------------------------------------------------------------------------------
+
+%----------------------Session Creation----------------------------------------
+\input{project}
+%------------------------------------------------------------------------------
+
+%----------------------Coverage Analysis---------------------------------------
+\input{coverage}
+%------------------------------------------------------------------------------
+
+%----------------------Slice---------------------------------------------------
+\input{slicing}
+%------------------------------------------------------------------------------
+
+%----------------------Slice---------------------------------------------------
+\input{metrics}
+%------------------------------------------------------------------------------
+
+\afterpage{\clearpage}
+\newpage
+
+%----------------------JaBUTi Evolution----------------------------------------
+\input{evolution}
+%------------------------------------------------------------------------------
+
+%----------------------Acknowledgments-----------------------------------------
+\input{acknowledgments}
+%------------------------------------------------------------------------------
+
+\newpage
+
+\singlespace
+%----------------------Bibliografia--------------------------------------------
+%\bibliographystyle{plain}
+%\bibliography{../../../bib/auri,../../../bib/others}
+\input{biblio}
+%------------------------------------------------------------------------------
+\end{document}

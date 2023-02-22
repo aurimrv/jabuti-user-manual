@@ -1,0 +1,244 @@
+\section{How to use the \toolname's Static Metrics Tool}\label{sec:metrics}
+
+Adicionalmente, na Seção~\ref{metricas:outras}, a métrica que
+avalia a complexidade ciclomática de McCabe~\cite{Pressman00SEPA}
+de cada método também foi implementada para identificar os métodos
+de ``maior'' complexidade dentro de uma dada classe.
+
+\subsection{LK's Metrics Applied to Classes}\label{metricas:lk}
+
+\subsubsection{NPIM -- Number of public instance methods in a class}
+
+Métrica calculada através da contagem do número de métodos de
+instância públicas na classe.
+
+\subsubsection{NIV -- Number of instance variables in a class}
+
+Métrica calculada através da contagem do número de variáveis de
+instância na classe, o que inclui as variáveis \textit{public},
+\textit{private} e \textit{protected} disponíveis para as
+instâncias.
+
+\subsubsection{NCM -- Number of class methods in a class}
+
+Métrica calculada através da contagem do número de métodos
+\textit{static} na classe.
+
+\subsubsection{NCV -- Number of class variables in a class}
+
+Métrica calculada através da contagem do número de variáveis
+\textit{static} na classe.
+
+\subsubsection{ANPM -- Average number of parameters per method}
+
+Métrica calculada através da divisão entre o somatório do número
+de parâmetros de cada método da classe pelo número total de
+métodos da classe.
+
+Variação: número máximo de parâmetros em um método da classe.
+
+\subsubsection{AMZ -- Average method size}
+
+Métrica calculada através da divisão entre a soma do número de
+linhas de código dos métodos da classe pelo número de métodos na
+classe (soma dos métodos instância e classe).
+
+Variações: média do número de instruções do bytecode e tamanho do
+bytecode.
+
+\subsubsection{UMI -- Use of multiple inheritance}
+
+Como a herança múltipla não se aplica à linguagem JAVA será
+definida uma variação à esta métrica.
+
+Variação: número de interfaces implementadas pela classe
+(\textit{Number of interfaces implemented} - NINI).
+
+\subsubsection{NMOS -- Number of methods overridden by a subclass}
+
+Métrica calculada através da contagem do número de métodos
+definidos na subclasse com o mesmo nome de métodos de sua
+superclasse.
+
+\subsubsection{NMIS -- Number of methods inherited by a subclass}
+
+Métrica calculada através da contagem do número de métodos
+herdados pela subclasse de suas superclasses.
+
+
+\subsubsection{NMAS -- Number of methods added by a subclass}
+
+Métrica calculada através da contagem do número de novos métodos
+adicionados pelas subclasses.
+
+\subsubsection{SI -- Specialization index}
+
+Métrica calculada através da divisão entre o resultado da
+multiplicação de NMOS e DIT (métrica de CK) pelo número total de
+métodos.
+
+
+\subsection{CK's Metrics Applied to Classes}\label{metricas:ck}
+
+\subsubsection{NOC -- Number of Children}
+
+Métrica calculada através da contagem do número de subclasses
+imediatas subordinadas à classe na árvore de hierarquia.
+
+\subsubsection{DIT -- Depth of Inheritance Tree}
+
+É o maior caminho da classe à raiz na árvore de hierarquia de
+herança. Interfaces também são consideradas, ou seja, o caminho
+através de uma hierarquia de interfaces também pode ser o que dá a
+profundidade de uma classe.
+
+Variação: como a representação de programa utilizada não inclui
+todas as classes até a raiz da árvore de hierarquia, será
+utilizado o caminho da classe até a primeira classe que não
+pertence à estrutura do programa.
+
+
+\subsubsection{WMC -- Weighted Methods per Class}
+
+ Métrica calculada através da soma da complexidade de cada método.
+ Não se define qual tipo de complexidade pode ser utilizada, assim
+ serão aplicadas as seguintes variações:
+
+ \begin{itemize}
+ \item Utiliza-se o valor 1 como complexidade de cada método;
+ assim WMC\_1 é o numero de métodos na classe;
+ \item Utiliza-se a métrica CC para a complexidade de cada método;
+ esta métrica será chamada WMC\_CC;
+ \item Utiliza-se a métrica LOCM para a complexidade de cada método;
+ esta métrica será chamada WMC\_LOCM;
+ \item Utiliza-se o tamanho do método (número de instruções)
+ para a complexidade de cada método;
+ esta métrica será chamada WMC\_SIZE;
+ \end{itemize}
+
+\subsubsection{LCOM -- Lack of Cohesion in Methods}
+
+Métrica calculada através da contagem do número de pares de
+métodos na classe que não compartilham variáveis de instância
+menos o número de pares de métodos que compartilham variáveis de
+instância. Quando o resultado é negativo, a métrica recebe o valor
+zero. Os métodos estáticos não são considerados na contagem, uma
+vez que só as variáveis de instância são tomadas.
+
+Variações:
+\begin{itemize}
+\item Considerar só a coesão entre métodos estáticos; esta métrica
+será chamada LCOM\_2; \item Considerar a coesão de métodos
+estáticos ou de instância; esta métrica, chamada LCOM\_3 pode ser
+calculada como $LCOM\_ - LCOM\_2$;
+\end{itemize}
+
+\subsubsection{RFC -- Response for a Class}
+
+Métrica calculada através da soma do número de métodos da classe
+mais os métodos que são invocados diretamente por eles. É o número
+de métodos que podem ser potencialmente executados em resposta a
+uma mensagem recebida por um objeto de uma classe ou por algum
+método da classe. Quando um método polimórfico é chamado para
+diferentes classes, cada diferente chamada é contada uma vez.
+
+\subsubsection{CBO -- Coupling Between Object}
+
+Há acoplamento entre duas classes quando uma classe usa métodos
+e/ou variáveis de instância de outra classe. Métrica calculada
+através da contagem do número de classes às quais uma classe está
+acoplada de alguma forma, o que exclui o acoplamento baseado em
+herança. Assim, o valor CBO de uma classe A é o número de classes
+das quais a classe A utiliza algum método e/ou variável de
+instância.
+
+
+\subsection{Another Metrics Applied to Methods}\label{metricas:outras}
+
+
+\subsubsection{CC -- Cyclomatic Complexity Metric}
+
+Métrica que calcula a complexidade do método, através dos grafos
+de fluxo de controle que descreve a estrutura lógica do método.
+
+Os grafos de fluxo consistem de nós e ramos, onde os nós
+representam comandos ou expressões e os ramos representam a
+transferência de controle entre estes nós.
+
+A métrica pode ser calculada das seguintes formas:
+
+\begin{itemize}
+
+\item O número de regiões do grafo de fluxo corresponde à
+Complexidade Ciclomática;
+
+\item A Complexidade Ciclomática, V(G), para o grafo de fluxo G é
+definida como:
+
+\begin{center}
+
+V(G) = E - N + 2
+
+\end{center}
+
+onde, V(G) mede os caminhos linearmente independentes encontrados
+no grafo, E é o número de ramos do grafo de fluxo e N o número de
+nós.
+
+\item A Complexidade Ciclomática, V(G), para o grafo de fluxo G é
+definida como:
+
+\begin{center}
+
+V(G) = P(G)+1
+
+\end{center}
+
+onde, P(G) é o número de nós predicativos contidos no grafo de
+fluxo G. Os nós predicativos são comandos condicionais
+(\textit{if}, \textit{while}, ...) com um ou mais operadores
+booleanos (\textit{or}, \textit{and}, \textit{nand},
+\textit{nor}). Um nó é criado para cada nó `a' ou `b' de um
+comando \verb+IF a OR b+.
+
+\end{itemize}
+
+Outras formas de se calcular a Complexidade Ciclomática são:
+
+\begin{itemize}
+
+\item V(G) = número de regiões de G;
+
+\item V(G) = número de ramos - número de nós + 2;
+
+\item V(G) = número de nós predicativos + 1.
+
+\end{itemize}
+
+Variações: a métrica é aplicada a métodos mas pode ser aplica à
+classe através da soma ( ver WMC\_CC), da média (que será chamada
+CC\_AVG) e do máximo (CC\_MAX) entre os métodos.
+
+\subsection{The Static Metrics GUI}
+
+The set of static metrics implemented in \toolname can be accessed
+by the \pk{Visualization $\rightarrow$ Complexity Metrics} menu
+option. Figure~\ref{fig:class-metrics} illustrates the window that
+will be displayed, considering the \pk{vending\prjext} project
+file. Each line corresponds to a given user class and each column
+is the resultant value of a given static metric applied to such a
+class. Observe that not only the classes under testing are
+displayed but also the other user classes required by the base
+class. A user class not required to be instrumented appears
+between braces. The idea is to allow the tester to visualize the
+metrics with respect to all possible classes that can be
+instrumented such that he/she can decide later to select such
+classes to be tested.
+
+By moving the mouser cursor onto the head of a given column, it is
+displayed a tip, giving a brief description of the corresponding
+metric of such a column. For example,
+Figure~\ref{fig:class-metrics-tip} shows the tip for the \pk{CBO}
+metrics, responsible to measure the coupling between objects.
+
+\input{fig-metrics-gui}

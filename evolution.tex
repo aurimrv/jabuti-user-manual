@@ -1,0 +1,55 @@
+\section{\toolname Evolution}\label{sec:evolution}
+
+Currently, \toolname is composed by a coverage analysis testing
+tool, a slicing too, and a static metrics tool for Java programs.
+The tool uses the Java bytecode (.class files) instead of the Java
+source code to collect the information necessary to perform its
+activities. This characteristics allows the tool to be used to
+test any kind of Java program, including Java components.
+
+Since most part of the testing criteria currently developed for
+component based testing are functional testing criteria, by
+implementing a set of structural testing criteria applied directly
+in the Java bytecode, \toolname enables the structural testing of
+Java components and also the identification of which part of such
+components needs more test or has not yet been covered.
+
+Even when no source code is available, the tester can at least
+identify which part of the bytecode requires more test, or, in
+case of a fault is identified, which part of the component is more
+probable to contain that fault. This information can be given to
+the component provider such that the component user can receive
+another corrected version of the component.
+
+Improvements forth coming of \toolname are:
+
+\begin{itemize}
+    \item Development of additional testing criteria to deal not
+    only with intra-method testing but also with inter-method and
+    inter-class testing;
+
+    \item Development of additional heuristic to improve the slicing
+    tool, such that a smart debugging and a ease fault localization to
+    be possible. We intent to investigate different slicing criteria,
+    including the ones that consider also data-flow information, to implement
+    on \toolname different heuristics to help the tester on fault localization
+    and smarting debug;
+
+    \item Development of a set of complexity metrics to help the definition
+    of a incremental testing strategy considering the complete hierarchy of
+    the classes under testing;
+
+    \item Evaluation, development and implementation of heuristics
+    to automatically identify part of the infeasible testing
+    requirements;
+
+    \item Implementation of algorithms to optimize the number of
+    testing requirements to be evaluated, using the
+    essential-branches' concept;
+
+    \item Improvement in the graphical interface to ease the
+    testing activity as much as possible.
+\end{itemize}
+
+Moreover, to show the benefices of the tool, experiments will be
+carried out exploring the different aspects of \toolname.

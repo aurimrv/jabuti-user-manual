@@ -1,0 +1,84 @@
+
+%----------------------Treating Orphan and Widow lines-------------------------
+\widowpenalty = 10000 \clubpenalty = 10000
+%\flushbottom
+
+%---------------------- Revision ----------------------------------------------
+\newcommand{\rev}[1]{{\color{blue} #1}}
+\newcommand{\del}[1]{{\color{red} #1}}
+%------------------------------------------------------------------------------
+
+%---------------------- Other commands ----------------------------------------
+\newcommand{\up}[1]{$^{\textup{\footnotesize #1}}$}
+\newcommand{\etal}{{\em et al.}\xspace}
+\newcommand{\wrt}{{w.r.t.}\xspace}
+\newcommand{\eg}{{e.g.}\xspace}
+\newcommand{\ie}{{i.e.}\xspace}
+\newenvironment{summary}{\clearpage\section*{\hspace*{\fill}Abstract\hspace*{\fill}}\begin{quote}}{\end{quote}\vspace*{0.5cm}\noindent
+\vfill\clearpage\vspace*{0pt}}
+
+\newcommand{\frontmatter}{\clearpage\pagestyle{plain}\renewcommand{\thepage}{\roman{page}}}
+\newcommand{\mainmatter}{\pagestyle{plain}\renewcommand{\thepage}{\arabic{page}}\setcounter{page}{1}}
+
+\newcommand{\MT}{{Mutation Testing}\xspace}
+\newcommand{\PU}{{Potenciais-Usos}\xspace}
+\newcommand{\PokeTool}{\emph{Poke-Tool}\xspace}
+\newcommand{\Proteum}{\emph{Proteum}\xspace}
+\newcommand{\ProteumIM}{{\small
+\mbox{$\mathcal{P\!\!R\!O\!T\!\!E\!U\!\!M\!/\!I\!\!M}$}}\xspace}
+\newcommand{\ProteumIMII}{{\small
+\mbox{$\mathcal{P\!\!R\!O\!T\!\!E\!U\!\!M\!/\!I\!\!M}$
+2.0}}\xspace}
+\newcommand{\ProteumFSM}{{\em Proteum/FSM}\xspace}
+\newcommand{\ProteumST}{{\em Proteum/ST}\xspace}
+\newcommand{\ProteumPN}{{\em Proteum/PN}\xspace}
+
+
+\newcommand{\MuDeL}{{\mbox{$\mathcal{M}u\mathcal{D}e\mathcal{L}$}}\xspace}
+\newcommand{\MuDeLGen}{\texttt{mudelgen}\xspace}
+\newcommand{\IDeL}{\textsf{IDeL}\xspace}
+\newcommand{\IDeLGen}{\texttt{idelgen}\xspace}
+
+\newcommand{\xSuds}{\emph{xSuds}\xspace}
+
+\newcommand{\bc}{\emph{bytecode}\xspace}
+\newcommand{\Bc}{\emph{Bytecode}\xspace}
+
+% Sets definitions
+\newcommand{\pk}[1]{\mbox{\textsf{#1}}\xspace}
+\newcommand{\bci}[1]{\mbox{\textsf{#1}}\xspace}
+\newcommand{\setbci}[1]{\textsf{#1}\xspace}
+\newcommand{\ctrl}[1]{\mbox{\textbf{\textsf{#1}}}\xspace}
+\newcommand{\twb}[1]{\mbox{\textbf{\textsf{#1}}}\xspace}
+\newcommand{\bigind}{\hspace{1cm}}
+\newcommand{\ind}{\hspace{0.5cm}}
+\newcommand{\type}{\bci{$\langle$T$\rangle$}}
+
+\newcommand{\IG}{$\mathcal{IG}$\xspace}
+\newcommand{\BG}{$\mathcal{BG}$\xspace}
+\newcommand{\DUG}{\pk{DUG}}
+
+\newcommand{\pc}{\textsf{pc}\xspace}
+
+\newcommand{\var}[1]{\textsf{#1}\xspace}
+\newcommand{\edg}[2]{\ensuremath{(#1, #2)}\xspace}
+\newcommand{\ass}[3]{\ensuremath{\langle#1, #2, #3\rangle}\xspace}
+
+\newcommand{\jaba}{\textsc{JaB\'A}\xspace}
+
+\newcommand{\toolname}{JaBUTi\xspace}
+\newcommand{\tooldesc}{Java Bytecode Understanding and Testing\xspace}
+\newcommand{\version}{Version 1.0\xspace}
+\newcommand{\prjext}{\pk{.jbt}}
+\newcommand{\trcext}{\pk{.trc}}
+
+\newcommand{\cmdsize}{\footnotesize}
+\newcommand{\cmdsmallsize}{\scriptsize}
+
+\DefineVerbatimEnvironment{cmd}{Verbatim}{%
+                                frame=single,%
+                                %numbers=left,%
+                                fontsize=\footnotesize,%
+                                %numbersep=1pt,%
+                                }
+%------------------------------------------------------------------------------

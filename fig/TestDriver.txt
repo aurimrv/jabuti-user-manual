@@ -1,0 +1,41 @@
+/*01*/ package vending;
+/*02*/
+/*03*/ import java.io.*; import java.util.StringTokenizer;
+/*04*/
+/*05*/ public class TestDriver {
+/*06*/
+/*07*/     static public void main(String args[ ]) throws Exception {
+/*08*/
+/*09*/         BufferedReader drvInput;
+/*10*/         String tcLine = new String();
+/*11*/
+/*12*/         String methodName = new String();
+/*13*/
+/*14*/         VendingMachine machine = new VendingMachine();
+/*15*/
+/*16*/         if (args.length < 1)
+/*17*/             drvInput = new BufferedReader(new InputStreamReader(System.in));
+/*18*/         else
+/*19*/             drvInput = new BufferedReader(new FileReader(args[0]));
+/*20*/
+/*21*/         System.out.println("VendingMachine ON");
+/*22*/         // Machine is ready. Reading input...
+/*23*/         while ((tcLine = drvInput.readLine()) != null) {
+/*24*/             StringTokenizer tcTokens = new StringTokenizer(tcLine);
+/*25*/
+/*26*/             if (tcTokens.hasMoreTokens())
+/*27*/                 methodName = tcTokens.nextToken();
+/*28*/
+/*29*/             if (methodName.equals("insertCoin"))
+/*30*/                 machine.insertCoin();
+/*31*/             else if (methodName.equals("returnCoin"))
+/*32*/                 machine.returnCoin();
+/*33*/             else if (methodName.equals("vendItem")) {
+/*34*/                 Integer selection = new Integer(tcTokens.nextToken());
+/*35*/
+/*36*/                 machine.vendItem(selection.intValue());
+/*37*/             }
+/*38*/         }
+/*39*/         System.out.println("VendingMachine OFF");
+/*40*/     }
+/*41*/ }
